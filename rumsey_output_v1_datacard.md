@@ -189,9 +189,10 @@ An instance of the output therefore has the following structure:
 
 ### Data Fields
 
-<img src="https://user-images.githubusercontent.com/5383572/188784909-10cd04fd-4b61-4205-a563-33d20f9026db.png" width="700">
 
-File name: drawn from an ID of original map images (provided by David Rumsey Map Collection. This ID corres
+File name: drawn from an ID of original map images (provided by David Rumsey Map Collection). This ID corresponds to the `Image No` field in the davidrumsey.com metadata.
+
+<img src="https://user-images.githubusercontent.com/5383572/188785367-446690fd-76fc-47db-b2ae-a1fac4fc61d6.png" width="700">
 
 - `example_field`: description, is it input/output of a task?
 - `Feature`: an instance of detected text which has a polygon geometry
@@ -201,7 +202,7 @@ File name: drawn from an ID of original map images (provided by David Rumsey Map
     - `score`: confidence score for text detection
     - `postocr_label`: output from PostOCR module which updates `text` content (always CAPITALIZED). 
 
-<img src="https://user-images.githubusercontent.com/5383572/188785367-446690fd-76fc-47db-b2ae-a1fac4fc61d6.png" width="700">
+<img src="https://user-images.githubusercontent.com/5383572/188784909-10cd04fd-4b61-4205-a563-33d20f9026db.png" width="700">
 
 ## Dataset Creation
 
