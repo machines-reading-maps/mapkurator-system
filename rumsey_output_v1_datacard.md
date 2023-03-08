@@ -260,7 +260,7 @@ ADD
 
 ### Dataset Curators
 
-This dataset was processed by @zekun-li, @Jina-Kim, @MinNamgung, and @linyijun with supervision from Yao-Yi Chiang, Knowledge Computing Lab, University of Minnesota. Data was provided by the David Rumsey Map Collection and Old Maps Online/Klokan Technologies, including contributions from David Rumsey, Drake Zabriskie, Wong, and Petr Pridal. Project conceptualization and review included many members of the Machines Reading Maps team: Katherine McDonough, Deborah Holmes-Wong, Rainer Simon, and Valeria Vitale.
+This dataset was processed by @zekun-li, @Jina-Kim, @MinNamgung, and @linyijun with supervision from Yao-Yi Chiang, Knowledge Computing Lab, University of Minnesota. Data was provided by the David Rumsey Map Collection and Old Maps Online/Klokan Technologies, including contributions from David Rumsey, Drake Zabriskie, David Wong, and Petr Pridal. Project conceptualization and review included many members of the Machines Reading Maps team: Katherine McDonough, Deborah Holmes-Wong, Rainer Simon, and Valeria Vitale.
 
 ### Licensing Information
 
