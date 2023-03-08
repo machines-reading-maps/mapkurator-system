@@ -200,6 +200,7 @@ An instance of the output therefore has the following structure:
     - `text`: raw mapKurator-recognized text within polygon 
     - `score`: confidence score for text detection
     - `postocr_label`: output from PostOCR module which updates `text` content (always CAPITALIZED). 
+    - `img_coordinates`: pixel cordinates of the bounding polygon
 
 <img src="https://user-images.githubusercontent.com/5383572/188784909-10cd04fd-4b61-4205-a563-33d20f9026db.png" width="700">
 
@@ -223,7 +224,7 @@ ADD
 
 ### Processing the data
 
-Data was created using [mapKurator](https://github.com/machines-reading-maps/mapkurator-system#model-details) and the [TESTR](TESTR](https://github.com/mlpc-ucsd/TESTR) model. mapKurator is a fully automatic pipeline to process of large number of scanned historical maps. 
+Data was created using [mapKurator](https://github.com/machines-reading-maps/mapkurator-system#model-details) and the [TESTR](https://github.com/mlpc-ucsd/TESTR) model. mapKurator is a fully automatic pipeline to process of large number of scanned historical maps. 
 
 This version of the dataset used the following modules in mapKurator.
 
