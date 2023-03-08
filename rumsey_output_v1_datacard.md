@@ -190,11 +190,10 @@ An instance of the output therefore has the following structure:
 ### Data Fields
 
 
-File name: drawn from an ID of original map images (provided by David Rumsey Map Collection). This ID corresponds to the `Image No` field in the davidrumsey.com metadata.
+**File name**: drawn from an ID of original map images (provided by David Rumsey Map Collection). This ID corresponds to the `Image No` field in the davidrumsey.com metadata.
 
 <img src="https://user-images.githubusercontent.com/5383572/188785367-446690fd-76fc-47db-b2ae-a1fac4fc61d6.png" width="700">
 
-- `example_field`: description, is it input/output of a task?
 - `Feature`: an instance of detected text which has a polygon geometry
   - `Polygon` `coordinates`: contains the geospatial coordinates for each vertex of the polygon
   - `Properties`
