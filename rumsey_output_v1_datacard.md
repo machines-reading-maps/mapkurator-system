@@ -25,9 +25,7 @@ Each file contains instances of text as it is found on a single, physical map sh
 
 Within these files, an instance of the output has the following structure:
 
-.. code-block:: geojson
-
-
+```json
  {
             "type": "Feature",
             "geometry":
@@ -185,7 +183,7 @@ Within these files, an instance of the output has the following structure:
                 ]
             }
         },
-
+```
 
 ### Data Fields
 
