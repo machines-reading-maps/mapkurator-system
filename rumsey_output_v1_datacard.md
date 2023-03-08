@@ -23,7 +23,9 @@ The data here has been collected from maps covering the entire world and printed
 
 Each file contains instances of text as it is found on a single, physical map sheet or a composite of sheets that has been artificially constructed for series maps that fit together to form one digital map of a larger area.
 
-Within these files, an instance of the output has the following structure:
+Every text identified by mapKurator is saved as a json `Feature` that is a polygon with geospatial coordinates for its vertices and has the following properties: `text` (the mapKurator predicted transcription of the text within the polygon), `score` (the confidence score for the text detection), `postocr_label` (a prediction for a normalized version of `text` that is based on a post-processing step, details below), and `img_coordinates` (the pixel coordinates of the polygon).
+
+An instance of the output therefore has the following structure:
 
 ```json
  {
@@ -191,5 +193,79 @@ Within these files, an instance of the output has the following structure:
 
 File name: drawn from an ID of original map images (provided by David Rumsey Map Collection. This ID corres
 
+- `example_field`: description, is it input/output of a task?
+- `Feature`: an instance of detected text which has a polygon geometry
+  - `Polygon` `coordinates`: contains the geospatial coordinates for each vertex of the polygon
+  - `Properties`
+    - `text`: raw mapKurator-recognized text within polygon 
+    - `score`: confidence score for text detection
+    - `postocr_label`: output from PostOCR module which updates `text` content (always CAPITALIZED). 
+
 <img src="https://user-images.githubusercontent.com/5383572/188785367-446690fd-76fc-47db-b2ae-a1fac4fc61d6.png" width="700">
+
+## Dataset Creation
+
+### Curation Rationale
+
+This dataset was created for the collaborative project between Machines Reading Maps and the David Rumsey Map Collection in order to enable searching maps in the collection based on their text content, not only based on traditional library metadata (e.g. title, author). It contains data derived from maps that were published in many different parts of the world, in many languages, at many scales, and with different intents. 
+
+The main criterion for inclusion in the dataset was whether a scanned map had been georeferenced. Working with georeferenced maps allows us to translate the pixel coordinates of a text's bounding polygon into geospatial coordinates, thereby "locating" the text automatically.
+
+### Initial Data Collection
+
+#### Accessing map images
+
+ADD
+
+#### Accessing metadata
+
+ADD
+
+### Processing the data
+
+Data was created using [mapKurator](https://github.com/machines-reading-maps/mapkurator-system#model-details) and the [TESTR](TESTR](https://github.com/mlpc-ucsd/TESTR) model. mapKurator is a fully automatic pipeline to process of large number of scanned historical maps. 
+
+This version of the dataset used the following modules in mapKurator.
+
+1. `ImageCroping` - divides very large map images (>10K pixels) into image patches (1K pixels) to make processing more efficient.
+2. `PatchTextSpotter` - uses state-of-the-art network architecture TESTR to detect and recognize text labels on image patches. 
+3. `PatchtoMapMerging` - merges patch-level spotting results to re-construct the map-level image.
+4. `GeocoordinateConverter` - converts the text label bounding polygons from an image coordinate system to a geocoordiate system. (Both are preserved in output.)
+5. `PostOCR` - this module experimentally suggests an alternative based on the content of features named in OpenStreetMap, given that we know there will be errors in the predicted `text` field. The PostOCR module compares the `text` content to a dictionary of all names of features in OpenStreetMap (in this version of the data, this is *only for the United States*) using the [fuzzy query function in elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html) in order to select candidates for an improved result. The top candidate is selected based on word popularity in the dictionary. 
+
+
+#### Training data
+Due to the lack of annotated samples for training, we created a set of synthetic maps to mimic the text styles (e.g., font, spacing, orientation) from a selection of real historical maps. We place names of OpenStreetMap features on a map by considering the shape of the location geometry. We then merge the text with background styles extracted from David Rumsey collection maps. We train the model with these unlimited synthetic maps and apply the model to the historical maps.
+
+#### Source Language Producer
+The `text` content was produced by the mapKurator pipeline implementing the [TESTR](https://github.com/mlpc-ucsd/TESTR) model.
+
+## Considerations for Using the Data
+
+### Social Imapct of Dataset
+
+ADD
+
+### Discussion of Biases
+
+- The PostOCR module is biased to return results relevant only to places in the the United States. It should not be seen as likely to be a 'correction' to the original `text` field except in very specific cases of maps whose geographic coverage is limited to the US and which were printed in English. It's also less likely to be as useful for US maps printed before the twentieth century.
+- ADD
+
+### Other Known Limitations
+
+- Issues related to using the synthetic data as training data?
+
+## Additional Information
+
+### Dataset Curators
+
+This dataset was processed by @zekun-li, @Jina-Kim, @MinNamgung, and @linyijun with supervision from Yao-Yi Chiang, Knowledge Computing Lab, University of Minnesota. Data was provided by the David Rumsey Map Collection and Old Maps Online/Klokan Technologies, including contributions from David Rumsey, Drake Zabriskie, Wong, and Petr Pridal. Project conceptualization and review included many members of the Machines Reading Maps team: Katherine McDonough, Deborah Holmes-Wong, Rainer Simon, and Valeria Vitale.
+
+### Licensing Information
+
+ADD
+
+### Citation Information
+
+ADD
 
