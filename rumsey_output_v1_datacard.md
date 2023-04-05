@@ -3,7 +3,7 @@
 
 ## Dataset Description
 
-Text on maps recognized from georeferenced subset of 57k historical maps David Rumsey Map Collection. 
+This dataset contains text on maps recognized from a georeferenced subset of ~57k historical maps from the David Rumsey Map Collection.
 
 - Browse the collection: https://www.davidrumsey.com/ 
 - Repository: ADD ZENODO LINK to replace https://s3.msi.umn.edu/rumsey_output/geojson_testr_syn_54119.zip
@@ -249,8 +249,22 @@ ADD
 
 ### Discussion of Biases
 
+#### Detection: False Positives
+
+#### Detection: False Negatives
+
+#### Recognition: Bounding Boxes
+
+#### Recognition: Transcription
+
 - The PostOCR module is biased to return results relevant only to places in the the United States. It should not be seen as likely to be a 'correction' to the original `text` field except in very specific cases of maps whose geographic coverage is limited to the US and which were printed in English. It's also less likely to be as useful for US maps printed before the twentieth century.
 - ADD
+
+
+#### Entity Linking: False Positives
+(for V3 of dataset only)
+
+
 
 ### Other Known Limitations
 
