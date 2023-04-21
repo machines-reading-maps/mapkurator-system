@@ -6,8 +6,7 @@
 This dataset contains text on maps recognized from a georeferenced subset of ~57k historical maps from the David Rumsey Map Collection.
 
 - Browse the collection: https://www.davidrumsey.com/ 
-- Repository: ADD ZENODO LINK to replace https://s3.msi.umn.edu/rumsey_output/geojson_testr_syn_54119.zip
-- Paper: ADD
+- Repository: https://purl.stanford.edu/vn901vj0926
 - Point of contact: For information about how this data was created, please contact https://yaoyichi.github.io/. For information about the corpus of physical maps, please contact https://library.stanford.edu/rumsey. For questions about using this data for humanities research, please contact Katie McDonough (k.mcdonough [at] lancaster.ac.uk).
 
 ### Dataset Summary
@@ -271,6 +270,8 @@ ADD
 - Issues related to using the synthetic data as training data?
 
 ## Additional Information
+
+Metadata for this data (e.g. information about the maps that the geojson files describe) is available at https://purl.stanford.edu/ss311gz1992.
 
 ### Dataset Curators
 
