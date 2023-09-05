@@ -1,0 +1,111 @@
+---
+license: cc-by-nc-2.0
+language:
+- en
+tags:
+- text spotting
+- scene text detection
+- maps
+- cultural heritage
+---
+# Model Card for Model ID
+
+<!-- Provide a quick summary of what the model is/does. -->
+
+
+## Model Details
+
+### Model Description
+
+<!-- Provide a longer summary of what this model is. -->
+
+
+<!-- Change names and language per model as needed -->
+- **Developed by:** Knowledge Computing Lab, University of Minnesota: Leeje Jang, Jina Kim, Zekun Li, Yijun Lin, Min Namgung, Yao-Yi Chiang
+- **Shared by:** Machines Reading Maps
+- **Model type:** text spotter
+- **Language(s):** English
+- **License:** CC-BY-NC 2.0
+
+### Model Sources [optional]
+
+<!-- Provide the basic links for the model. -->
+
+- **Repository:** https://github.com/knowledge-computing/mapkurator-spotter
+- **Paper [optional]:** [More Information Needed]
+- **Documentation:** https://knowledge-computing.github.io/mapkurator-doc/#/
+
+## Uses
+
+<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
+
+### Direct Use
+
+<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
+
+The model detects and recognizes text on images. It was trained specifically to identify text on a wide range of historical maps with many styles printed between ca. 1500-2000 provided by the David Rumsey Map Collection.
+This version of the model was trained with an English language model.
+
+
+### Downstream Use
+
+<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
+Using this model for new experiments will require attention to the style and language of text on images, including (possibly) the creation of new, synthetic or other training data.
+
+
+### Out-of-Scope Use
+
+<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
+
+
+## Bias, Risks, and Limitations
+
+<!-- This section is meant to convey both technical and sociotechnical limitations. -->
+This model will struggle to return high quality results for maps with complex fonts, low contrast images, complex background colors and textures, and non-English language words.
+
+[More Information Needed]
+
+### Recommendations
+
+<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
+
+Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.
+
+## How to Get Started with the Model
+
+Please refer to the mapKurator documentation for details: https://knowledge-computing.github.io/mapkurator-doc/#/
+
+## Training Details
+
+### Training Data
+
+<!-- This should link to a Data Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
+
+Synthetic training datasets:
+1. SynthText: 40k text-free background images from COCO and use them to generate synthetic text images (see the left image). Code: https://github.com/ankush-me/SynthText; Dataset: TBD.
+2. SynMap: "patches" of synthetic maps that mimic the text (e.g., font, spacing, orientation) and background styles in the real historical maps (see the right image). Code: TBD; Dataset: TBD.
+
+
+## Citation [optional]
+
+<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
+
+**BibTeX:**
+
+[More Information Needed]
+
+**APA:**
+
+[More Information Needed]
+
+
+
+## Model Card Authors
+
+Yijun Lin, Katherine McDonough, Valeria Vitale
+
+## Model Card Contact
+
+Yijun Lin, lin00786 at umn.edu 
+
+
